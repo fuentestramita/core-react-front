@@ -37,7 +37,7 @@ const Menu = () => {
         <div key={menu.id}>
           {menu?.route ? (
             <ItemWrapper>
-              <StyledLink href={menu?.route}>{menu.name}</StyledLink>
+              <StyledLink to={menu?.route}>{menu.name}</StyledLink>
             </ItemWrapper>
           ) : (
             <ItemWrapper>

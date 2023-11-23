@@ -1,10 +1,9 @@
-import { Avatar, Box, HStack, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Select, Text, VStack, chakra } from "@chakra-ui/react";
+import { Avatar, Box, Flex, HStack, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Select, Text, VStack, chakra } from "@chakra-ui/react";
 import { FiChevronDown } from "react-icons/fi";
 import { HEADER_HEIGHT } from "./constants";
 import styled from "styled-components";
 import React from "react";
 import Loading from "../loading";
-import { useParams } from "react-router-dom";
 import { BankType } from "../../types/banks";
 import { useGetBanks } from "../../hooks/use-get-banks";
 import { colors } from "../../config/styles/styles";
@@ -36,12 +35,8 @@ const StyledMenuButton = chakra(MenuButton, {
     width: "250px",
   },
 });
-type Params = {
-  slug: string;
-};
+
 const Navbar = () => {
-  const params: Params = useParams();
-  console.log(params);
   const [selectedBank, setSelectedBank] = React.useState<Optional<BankType>>(null);
   const { data: banks, isLoading, isError } = useGetBanks();
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -58,9 +53,15 @@ const Navbar = () => {
           <Loading />
         ) : (
           <>
-            <Text color={colors.fontColor} fontWeight="bold" fontSize={"xx-large"}>
-              {selectedBank?.name}
-            </Text>
+            <Flex gap="8px">
+              <Text color="yellow.400" fontWeight="bold" fontSize={"xx-large"}>
+                TRAMITA
+              </Text>
+              <Text color={colors.fontColor} fontWeight="bold" fontSize={"xx-large"}>
+                {"/ Banco "}
+                {selectedBank?.name}
+              </Text>
+            </Flex>
             <RightContent>
               <Select size="lg" placeholder="Seleccione una opción" onChange={handleChange} backgroundColor="white">
                 {banks?.map((bank: BankType) => (
@@ -77,11 +78,11 @@ const Navbar = () => {
                       src={"https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"}
                     />
                     <VStack display={{ base: "none", md: "flex" }} alignItems="flex-start" spacing="1px" ml="2">
-                      <Text fontSize="xl" color="white">
+                      <Text fontSize="xl" color={colors.fontColor}>
                         Mario Granger
                       </Text>
                     </VStack>
-                    <Box color="white">
+                    <Box color={colors.fontColor}>
                       <FiChevronDown />
                     </Box>
                   </HStack>

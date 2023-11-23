@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: ChildrenType }) {
       <Sidebar />
       <Content>
         <Navbar />
-        hola
+        {children}
       </Content>
     </Wrapper>
   );
