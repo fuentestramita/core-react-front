@@ -14,13 +14,17 @@ const Content = styled.div({
   flexDirection: "column",
   width: "100%",
 });
+
+const FormContent = styled.div({
+  padding: "16px",
+});
 export default function Layout({ children }: { children: ChildrenType }) {
   return (
     <Wrapper>
       <Sidebar />
       <Content>
         <Navbar />
-        {children}
+        <FormContent>{children}</FormContent>
       </Content>
     </Wrapper>
   );

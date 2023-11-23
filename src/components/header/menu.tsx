@@ -46,7 +46,7 @@ const Menu = () => {
               </Text>
               {menu?.submenu?.map((submenu) => (
                 <SubmenuWrapper key={submenu?.id}>
-                  <StyledLink href={submenu?.route}>{submenu.name}</StyledLink>
+                  <StyledLink to={submenu?.route}>{submenu.name}</StyledLink>
                 </SubmenuWrapper>
               ))}
             </ItemWrapper>

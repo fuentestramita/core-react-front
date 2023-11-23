@@ -1,5 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const theme = extendTheme({
   colors: {

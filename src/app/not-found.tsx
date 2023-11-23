@@ -1,4 +1,3 @@
-"use client";
 import { Button, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";

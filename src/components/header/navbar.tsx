@@ -16,6 +16,7 @@ const Wrapper = styled.div({
   backgroundColor: colors.main,
   padding: "0 16px",
   justifyContent: "space-between",
+  boxShadow: "0 2px 0 #d3d3d3",
 });
 
 const RightContent = styled.div({
@@ -38,7 +39,7 @@ const StyledMenuButton = chakra(MenuButton, {
 
 const Navbar = () => {
   const [selectedBank, setSelectedBank] = React.useState<Optional<BankType>>(null);
-  const { data: banks, isLoading, isError } = useGetBanks();
+  const { data: banks, isLoading } = useGetBanks();
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const bank: Optional<BankType> = banks.find((bank: BankType) => bank.id === event.target.value);
     setSelectedBank(bank);
@@ -58,8 +59,7 @@ const Navbar = () => {
                 TRAMITA
               </Text>
               <Text color={colors.fontColor} fontWeight="bold" fontSize={"xx-large"}>
-                {"/ Banco "}
-                {selectedBank?.name}
+                {selectedBank?.name ? <span>{`/ Banco ${selectedBank?.name}`}</span> : null}
               </Text>
             </Flex>
             <RightContent>
