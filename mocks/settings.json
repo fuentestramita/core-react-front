@@ -1,0 +1,32 @@
+[
+  {
+    "request": {
+      "url": "/api/v1/banks",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "latency": 1000,
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000"
+      },
+      "file": "./banks/banks.json"
+    }
+  },
+  {
+    "request": {
+      "url": "/api/v1/user-menu",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "latency": 1000,
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000"
+      },
+      "file": "./user-menu/user-menu.json"
+    }
+  }
+]
