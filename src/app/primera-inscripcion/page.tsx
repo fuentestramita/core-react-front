@@ -1,10 +1,12 @@
 import Layout from "../layout";
-import Filtro from "./components/filtro";
+import PrimeraInscripcionFiltro from "./components/primera-inscripcion-filtro";
+import PrimeraInscripcionTramita from "./components/primera-inscripcion-tramita";
 
 const PrimeraInscripcionPage = () => {
   return (
     <Layout>
-      <Filtro />
+      <PrimeraInscripcionFiltro />
+      <PrimeraInscripcionTramita />
     </Layout>
   );
 };

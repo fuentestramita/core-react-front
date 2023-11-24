@@ -7,6 +7,8 @@ const Wrapper = styled.div({
   display: "flex",
   width: "100vw",
   minHeight: "100vh",
+  overflow: "hidden",
+  minWidth: "max-content",
 });
 
 const Content = styled.div({
@@ -16,7 +18,10 @@ const Content = styled.div({
 });
 
 const FormContent = styled.div({
+  display: "flex",
   padding: "16px",
+  flexDirection: "column",
+  gap: "16px",
 });
 export default function Layout({ children }: { children: ChildrenType }) {
   return (
