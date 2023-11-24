@@ -12,7 +12,6 @@ const TramitaContainer = styled.div({
   border: "1px solid #d3d3d3",
   width: "100%",
   display: "flex",
-  justifyContent: "space-between",
   gap: "16px",
   overflow: "hidden",
   minWidth: "max-content",
@@ -23,26 +22,29 @@ const LeftColumn = styled.div({
   flexDirection: "column",
   alignItems: "flex-start",
   justifyContent: "flex-start",
-  width: "30%",
-  minWidth: "300px",
+  width: "35%",
+  minWidth: "440px",
+  maxWidth: "440px",
 });
 
 const RightColumn = styled.div({
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
-  justifyContent: "center",
-  width: "30%",
-  minWidth: "300px",
+  justifyContent: "flex-start",
+  width: "35%",
+  minWidth: "440px",
+  maxWidth: "440px",
 });
 
 const MiddleColumn = styled.div({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "flecx-start",
+  justifyContent: "flex-start",
   width: "10%",
   minWidth: "300px",
+  maxWidth: "300px",
 });
 
 const Flex = styled.div({
@@ -64,19 +66,22 @@ const StyledTextArea = styled.textarea({
 
 const PrimeraInscripcionTramita = () => {
   return (
-    <div style={{ display: "block" }}>
+    <div>
+      <Text size="sm" fontWeight="bold">
+        Tramita
+      </Text>
       <TramitaContainer>
         <LeftColumn>
           <Flex id="PPU">
             <Text fontWeight="bold">PPU</Text>
             <div>
               <StyledInput type="text" />
-              <StyledInput type="text" width="75px" />
+              <StyledInput type="text" width="35px" />
             </div>
           </Flex>
           <Flex id="estado">
             <Text fontWeight="bold">Estado</Text>
-            <Select width="150px" backgroundColor="white">
+            <Select size="sm" width="150px" backgroundColor="white">
               <option value="1">Activo</option>
               <option value="2">Inactivo</option>
             </Select>
@@ -118,20 +123,28 @@ const PrimeraInscripcionTramita = () => {
             <StyledInput type="text" width="200px" />
           </Flex>
           <Flex id="direccion">
-            <Text fontWeight="bold">Calle</Text>
-            <StyledInput type="text" />
-            <Text fontWeight="bold">Número</Text>
-            <StyledInput type="text" />
-            <Text fontWeight="bold">Complemento</Text>
-            <StyledInput type="text" />
+            <div>
+              <Text fontWeight="bold">Calle</Text>
+              <StyledInput type="text" />
+            </div>
+            <div>
+              <Text fontWeight="bold">Número</Text>
+              <StyledInput type="text" />
+            </div>
+            <div>
+              <Text fontWeight="bold">Complemento</Text>
+              <StyledInput type="text" />
+            </div>
           </Flex>
           <Flex id="direccion-2">
-            <Text fontWeight="bold">Comuna</Text>
-            <StyledInput type="text" />
-            <Flex>
+            <div>
+              <Text fontWeight="bold">Comuna</Text>
+              <StyledInput type="text" />
+            </div>
+            <div>
               <Text fontWeight="bold">Ciudad</Text>
               <StyledInput type="text" />
-            </Flex>
+            </div>
           </Flex>
           <Flex id="contacto">
             <Text fontWeight="bold">Contacto</Text>
@@ -159,7 +172,6 @@ const PrimeraInscripcionTramita = () => {
           </Flex>
           <Flex id="fecha-rnvm">
             <Text fontWeight="bold">Fecha Solicitud RNVM</Text>
-            <DatePicker type="date" />
             <input type="checkbox" />
             <Text size="xs" fontWeight="bold">
               Rut
@@ -172,14 +184,17 @@ const PrimeraInscripcionTramita = () => {
             <Text size="xs" fontWeight="bold">
               CI
             </Text>
+            <DatePicker type="date" />
           </Flex>
           <Flex id="n-valija">
             <Text fontWeight="bold">Número Valija</Text>
-            <DatePicker type="date" />
-            <input type="checkbox" />
-            <Text size="xs" fontWeight="bold">
-              Entrega Valija
-            </Text>
+            <div>
+              <input type="checkbox" />
+              <Text size="xs" fontWeight="bold">
+                Entrega Valija
+              </Text>
+              <DatePicker type="date" />
+            </div>
           </Flex>
           <Flex id="ejecutivo">
             <Text fontWeight="bold">Ejecutivo</Text>
@@ -199,7 +214,7 @@ const PrimeraInscripcionTramita = () => {
         <RightColumn>
           <Flex id="año">
             <Text fontWeight="bold">Año</Text>
-            <Select width="150px" backgroundColor="white">
+            <Select size="sm" width="150px" backgroundColor="white">
               {years.map((year, index) => (
                 <option key={index} value={year}>
                   {year}
@@ -221,13 +236,13 @@ const PrimeraInscripcionTramita = () => {
           </Flex>
           <Flex id="obs-entrega">
             <Text fontWeight="bold">Observación Entrega</Text>
-            <Select width="150px" backgroundColor="white">
+            <Select size="sm" width="150px" backgroundColor="white">
               <option value="">Seleccione</option>
             </Select>
           </Flex>
           <Flex id="n-placas">
             <Text fontWeight="bold">N° Placas</Text>
-            <Select width="150px" backgroundColor="white">
+            <Select size="sm" width="150px" backgroundColor="white">
               {[...Array(5)].map((_, index) => (
                 <option key={index + 1} value={index + 1}>
                   {index + 1}
@@ -267,31 +282,31 @@ const PrimeraInscripcionTramita = () => {
           </Flex>
           <Flex id="valor-1ra-inscrip">
             <Text fontWeight="bold">Valor 1ra inscripción</Text>
-            <Select width="150px" backgroundColor="white">
+            <Select size="sm" width="150px" backgroundColor="white">
               <option value="$1231231232">$1231231232</option>
             </Select>
           </Flex>
           <Flex id="valor-tramita">
             <Text fontWeight="bold">Valor Tramita</Text>
-            <Select width="150px" backgroundColor="white">
+            <Select size="sm" width="150px" backgroundColor="white">
               <option value="0,3">0,3</option>
             </Select>
           </Flex>
           <Flex id="valor-servicio-tag">
             <Text fontWeight="bold">Valor Servicio TAG</Text>
-            <Select width="150px" backgroundColor="white">
+            <Select size="sm" width="150px" backgroundColor="white">
               <option value="0">0</option>
             </Select>
           </Flex>
           <Flex id="valor-notaria">
             <Text fontWeight="bold">Valor Servicio TAG</Text>
-            <Select width="150px" backgroundColor="white">
+            <Select size="sm" width="150px" backgroundColor="white">
               <option value="$0">$0</option>
             </Select>
           </Flex>
           <Flex id="valor-despacho-correo">
             <Text fontWeight="bold">Valor Despacho Correo</Text>
-            <Select width="150px" backgroundColor="white">
+            <Select size="sm" width="150px" backgroundColor="white">
               <option value="0,00">0,00</option>
             </Select>
           </Flex>

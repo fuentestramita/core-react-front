@@ -1,10 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MaestroPage from "../maestro/page";
 import Layout from "../layout";
 import NotFound from "../not-found";
-import PrimeraInscripcionPage from "../primera-inscripcion/page";
+import React, { Suspense } from "react";
+import Loading from "../../components/loading";
 
 const Root = () => {
+  const LazyMaestro = React.lazy(() => import("../maestro/page"));
+  const LazyPrimeraInscripcion = React.lazy(() => import("../primera-inscripcion/page"));
   const router = createBrowserRouter([
     {
       path: "/",
@@ -16,11 +18,19 @@ const Root = () => {
     },
     {
       path: "/maestro",
-      element: <MaestroPage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <LazyMaestro />
+        </Suspense>
+      ),
     },
     {
       path: "/primera-inscripcion",
-      element: <PrimeraInscripcionPage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <LazyPrimeraInscripcion />
+        </Suspense>
+      ),
     },
     {
       path: "*",

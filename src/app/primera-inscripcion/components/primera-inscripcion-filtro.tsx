@@ -27,22 +27,27 @@ const ButtonWrapper = styled.div({
 });
 const PrimeraInscripcionFiltro = () => {
   return (
-    <FiltroContainer>
-      <InputContainer>
-        <Text fontWeight="bold">PPU</Text>
-        <StyledInput type="text" />
-        <Text fontWeight="bold">N° Factura</Text>
-        <StyledInput type="text" />
-        <Text fontWeight="bold">RUT Factura</Text>
-        <StyledInput type="text" />
-        <Button colorScheme="blue">Buscar</Button>
-      </InputContainer>
-      <ButtonWrapper>
-        <Button colorScheme="blue">Guardar</Button>
-        <Button colorScheme="blue">Nuevo</Button>
-        <Button colorScheme="blue">Salir</Button>
-      </ButtonWrapper>
-    </FiltroContainer>
+    <div>
+      <Text size="sm" fontWeight="bold">
+        Filtro
+      </Text>
+      <FiltroContainer>
+        <InputContainer>
+          <Text fontWeight="bold">PPU</Text>
+          <StyledInput type="text" />
+          <Text fontWeight="bold">N° Factura</Text>
+          <StyledInput type="text" />
+          <Text fontWeight="bold">RUT Factura</Text>
+          <StyledInput type="text" />
+          <Button colorScheme="blue">Buscar</Button>
+        </InputContainer>
+        <ButtonWrapper>
+          <Button colorScheme="blue">Guardar</Button>
+          <Button colorScheme="blue">Nuevo</Button>
+          <Button colorScheme="blue">Salir</Button>
+        </ButtonWrapper>
+      </FiltroContainer>
+    </div>
   );
 };
 
