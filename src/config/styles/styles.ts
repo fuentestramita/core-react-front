@@ -1,6 +1,7 @@
 export const colors = {
   main: "white",
   backgroundPrimary: "white",
+  backgroundSecondary: "#f4f8fb",
   fontColor: "#2D3748",
   buttonColors: {
     primary: {

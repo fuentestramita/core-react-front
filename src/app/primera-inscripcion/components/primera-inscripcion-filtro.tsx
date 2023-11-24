@@ -1,13 +1,8 @@
 import styled from "styled-components";
 import { Text } from "../../../components/typography";
 import { Button } from "@chakra-ui/react";
-
-const InputText = styled.input({
-  padding: "8px",
-  width: "150px",
-  border: "1px solid #d3d3d3",
-  borderRadius: "4px",
-});
+import { StyledInput } from "../../../components/input";
+import { colors } from "../../../config/styles/styles";
 
 const FiltroContainer = styled.div({
   display: "flex",
@@ -15,7 +10,9 @@ const FiltroContainer = styled.div({
   width: "100%",
   border: "1px solid #d3d3d3",
   padding: "8px",
-  backgroundColor: "#f4f8fb",
+  backgroundColor: colors.backgroundSecondary,
+  overflow: "hidden",
+  minWidth: "max-content",
 });
 
 const InputContainer = styled.div({
@@ -28,16 +25,16 @@ const ButtonWrapper = styled.div({
   display: "flex",
   gap: "8px",
 });
-const Filtro = () => {
+const PrimeraInscripcionFiltro = () => {
   return (
     <FiltroContainer>
       <InputContainer>
         <Text fontWeight="bold">PPU</Text>
-        <InputText type="text" width="150px" />
+        <StyledInput type="text" />
         <Text fontWeight="bold">N° Factura</Text>
-        <InputText type="text" width="150px" />
+        <StyledInput type="text" />
         <Text fontWeight="bold">RUT Factura</Text>
-        <InputText type="text" width="150px" />
+        <StyledInput type="text" />
         <Button colorScheme="blue">Buscar</Button>
       </InputContainer>
       <ButtonWrapper>
@@ -49,4 +46,4 @@ const Filtro = () => {
   );
 };
 
-export default Filtro;
+export default PrimeraInscripcionFiltro;

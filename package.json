@@ -12,7 +12,6 @@
     "typecheck": "npx tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/provider": "^2.4.2",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -21,6 +20,7 @@
     "framer-motion": "^10.16.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
+    "node-static": "^0.7.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
@@ -40,7 +40,7 @@
     "eslint": "^8.53.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
-    "stubby": "^0.1.40",
+    "stubby": "^5.1.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
   }

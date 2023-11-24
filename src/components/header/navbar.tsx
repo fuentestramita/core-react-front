@@ -17,6 +17,8 @@ const Wrapper = styled.div({
   padding: "0 16px",
   justifyContent: "space-between",
   boxShadow: "0 2px 0 #d3d3d3",
+  overflow: "hidden",
+  minWidth: "max-content",
 });
 
 const RightContent = styled.div({
