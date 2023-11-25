@@ -215,7 +215,7 @@ const PrimeraInscripcionTramita = () => {
           <Flex id="año">
             <Text fontWeight="bold">Año</Text>
             <Select size="sm" width="100px" backgroundColor="white">
-              {years.map((year, index) => (
+              {years?.map((year, index) => (
                 <option key={index} value={year}>
                   {year}
                 </option>
@@ -243,7 +243,7 @@ const PrimeraInscripcionTramita = () => {
           <Flex id="n-placas">
             <Text fontWeight="bold">N° Placas</Text>
             <Select size="sm" width="100px" backgroundColor="white">
-              {[...Array(5)].map((_, index) => (
+              {[...Array(5)]?.map((_, index) => (
                 <option key={index + 1} value={index + 1}>
                   {index + 1}
                 </option>
