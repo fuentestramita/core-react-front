@@ -4,7 +4,7 @@ import { StyledInput } from "../../../components/input";
 import { Text } from "../../../components/typography";
 import { Select } from "@chakra-ui/react";
 import { DatePicker } from "../../../components/date-picker";
-import { years } from "../../../../mocks/years/years";
+import { years } from "../../../mocks/years/years";
 import { StyledCheckbox } from "../../../components/checkbox";
 
 const TramitaContainer = styled.div({

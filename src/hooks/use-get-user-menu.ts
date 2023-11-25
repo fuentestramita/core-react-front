@@ -2,7 +2,7 @@
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { UserMenuResponse } from "../types/user-menu";
 import { TramitaAPI } from "../services";
-import { data as menu } from "../../mocks/user-menu/user-menu";
+import { data as menu } from "../mocks/user-menu/user-menu";
 async function fetchUserMenu() {
   try {
     const { data } = await TramitaAPI.get(`/v1/user-menu/`);

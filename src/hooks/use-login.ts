@@ -4,7 +4,7 @@ import { LoginType } from "../types/login";
 import { useSignIn } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
 import { LOGIN_EXPIRE_TIME_IN_MINUTES } from "../config/content/constants";
-import { loginData } from "../../mocks/login/login";
+import { loginData } from "../mocks/login/login";
 export const useLoginMutation = () => {
   const signIn = useSignIn();
   const navigate = useNavigate();
