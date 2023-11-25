@@ -8,7 +8,7 @@
     "build": "tsc && vite build && rm -rf node_modules/",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "stubby": "stubby -w -d ./mocks/settings.json -s 8815 -a 8816 -t 8817",
+    "stubby": "stubby -w -d ./src/mocks/settings.json -s 8815 -a 8816 -t 8817",
     "typecheck": "npx tsc --noEmit"
   },
   "dependencies": {

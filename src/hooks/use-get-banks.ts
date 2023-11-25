@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { TramitaAPI } from "../services";
-import { data as banks } from "../../mocks/banks/banks";
+import { data as banks } from "../mocks/banks/banks";
 async function fetchBanks() {
   try {
     const { data } = await TramitaAPI.get(`/v1/banks/`);
