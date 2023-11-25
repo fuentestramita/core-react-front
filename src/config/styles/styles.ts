@@ -2,7 +2,7 @@ export const colors = {
   main: "white",
   backgroundPrimary: "white",
   backgroundSecondary: "#f4f8fb",
-  fontColor: "#2D3748",
+  fontColor: "#6e6e6e",
   buttonColors: {
     primary: {
       background: "#3182CE",
@@ -28,5 +28,7 @@ export const sizes = {
     md: "1rem",
     lg: "1.125rem",
     xl: "1.25rem",
+    "2xl": "1.5rem",
+    "3xl": "1.75rem",
   },
 };
