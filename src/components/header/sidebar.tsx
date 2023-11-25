@@ -3,10 +3,10 @@ import { styled } from "styled-components";
 import { HEADER_HEIGHT } from "./constants";
 import Menu from "./menu";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Button, Text } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { colors } from "../../config/styles/styles";
 import { Link } from "react-router-dom";
-import Logo from "../../../public/assets/logo-core-mini.webp";
+import Logo from "../../assets/logo-core-mini.webp";
 
 const SidebarWrapper = styled.div<{ open: boolean }>(({ open }) => ({
   display: "flex",

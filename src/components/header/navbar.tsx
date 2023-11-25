@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, HStack, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Select, Text, VStack, chakra } from "@chakra-ui/react";
+import { Avatar, Box, Flex, HStack, Menu, MenuButton, MenuItem, MenuList, Select, Text, VStack, chakra } from "@chakra-ui/react";
 import { FiChevronDown } from "react-icons/fi";
 import { HEADER_HEIGHT } from "./constants";
 import styled from "styled-components";
@@ -7,6 +7,8 @@ import Loading from "../loading";
 import { BankType } from "../../types/banks";
 import { useGetBanks } from "../../hooks/use-get-banks";
 import { colors } from "../../config/styles/styles";
+import { useSignOut } from "react-auth-kit";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div({
   minHeight: HEADER_HEIGHT,
@@ -40,6 +42,8 @@ const StyledMenuButton = chakra(MenuButton, {
 });
 
 const Navbar = () => {
+  const signOut = useSignOut();
+  const navigate = useNavigate();
   const [selectedBank, setSelectedBank] = React.useState<Optional<BankType>>(null);
   const { data: banks, isLoading } = useGetBanks();
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -47,6 +51,11 @@ const Navbar = () => {
     setSelectedBank(bank);
     // ADD PARAM TO ROUTE
     // router.push(getBankURL(bank?.id || "", pathName));
+  };
+
+  const onSignOut = () => {
+    signOut();
+    navigate("/login");
   };
 
   return (
@@ -90,11 +99,7 @@ const Navbar = () => {
                   </HStack>
                 </StyledMenuButton>
                 <MenuList>
-                  <MenuItem>Profile</MenuItem>
-                  <MenuItem>Settings</MenuItem>
-                  <MenuItem>Billing</MenuItem>
-                  <MenuDivider />
-                  <MenuItem>Sign out</MenuItem>
+                  <MenuItem onClick={onSignOut}>Salir</MenuItem>
                 </MenuList>
               </Menu>
             </RightContent>

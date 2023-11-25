@@ -28,5 +28,20 @@
       },
       "file": "./user-menu/user-menu.json"
     }
+  },
+  {
+    "request": {
+      "url": "/api/v1/login",
+      "method": "POST"
+    },
+    "response": {
+      "status": 400,
+      "latency": 1000,
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000"
+      },
+      "file": "./login/login.json"
+    }
   }
 ]

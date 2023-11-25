@@ -1,6 +1,6 @@
 import { Label, Text } from "../../../components/typography";
 import styled from "styled-components";
-import { colors, sizes } from "../../../config/styles/styles";
+import { colors } from "../../../config/styles/styles";
 import { StyledCheckbox } from "../../../components/checkbox";
 const TramitaContainer = styled.div({
   backgroundColor: colors.backgroundSecondary,

@@ -14,8 +14,8 @@ const StyledLabel = styled.label<{ fontWeight: string; color: string; size: stri
   fontSize: size,
 }));
 
-type SizeType = "xs" | "sm" | "md" | "lg" | "xl";
-type FontWeightType = "normal" | "bold";
+type SizeType = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
+type FontWeightType = "normal" | "semibold" | "bold";
 type ColorType = "primary" | "secondary" | "tertiary" | "warning" | "danger";
 export const Text = ({ children, fontWeight = "normal", size = "sm", color = "primary" }: { children: ChildrenType; fontWeight?: FontWeightType; color?: ColorType; size?: SizeType }) => {
   let colorSelected: string;
@@ -49,6 +49,10 @@ export const Text = ({ children, fontWeight = "normal", size = "sm", color = "pr
       fontWeightSelected = "normal";
       break;
     }
+    case "semibold": {
+      fontWeightSelected = "400";
+      break;
+    }
     case "bold": {
       fontWeightSelected = "bold";
       break;
@@ -74,6 +78,14 @@ export const Text = ({ children, fontWeight = "normal", size = "sm", color = "pr
     }
     case "xl": {
       sizeSelected = sizes.fontSize.xl;
+      break;
+    }
+    case "2xl": {
+      sizeSelected = sizes.fontSize["2xl"];
+      break;
+    }
+    case "3xl": {
+      sizeSelected = sizes.fontSize["3xl"];
       break;
     }
   }
@@ -129,6 +141,10 @@ export const Label = ({
       fontWeightSelected = "normal";
       break;
     }
+    case "semibold": {
+      fontWeightSelected = "400";
+      break;
+    }
     case "bold": {
       fontWeightSelected = "bold";
       break;
@@ -154,6 +170,14 @@ export const Label = ({
     }
     case "xl": {
       sizeSelected = sizes.fontSize.xl;
+      break;
+    }
+    case "2xl": {
+      sizeSelected = sizes.fontSize["2xl"];
+      break;
+    }
+    case "3xl": {
+      sizeSelected = sizes.fontSize["3xl"];
       break;
     }
   }

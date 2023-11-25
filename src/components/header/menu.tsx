@@ -52,7 +52,7 @@ const Menu = () => {
                 </AccordionButton>
                 <AccordionPanel>
                   {menu?.submenu?.map((submenu) => (
-                    <StyledLink to={submenu?.route}>
+                    <StyledLink key={submenu?.id} to={submenu?.route}>
                       <ItemWrapper key={submenu?.id}>{submenu.name}</ItemWrapper>
                     </StyledLink>
                   ))}
