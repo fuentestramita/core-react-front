@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Button, Text } from "@chakra-ui/react";
 import { colors } from "../../config/styles/styles";
 import { Link } from "react-router-dom";
+import Logo from "../../../public/assets/logo-core-mini.webp";
 
 const SidebarWrapper = styled.div<{ open: boolean }>(({ open }) => ({
   display: "flex",
@@ -39,9 +40,7 @@ const Sidebar = () => {
         </Button>
         {open ? (
           <Link to="/">
-            <Text color="gray.700" fontWeight="bold" fontSize={"xx-large"}>
-              Core
-            </Text>
+            <img src={Logo} alt="Logo Core" />
           </Link>
         ) : null}
       </Header>

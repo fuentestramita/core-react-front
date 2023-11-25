@@ -5,6 +5,7 @@ import { Text } from "../../../components/typography";
 import { Select } from "@chakra-ui/react";
 import { DatePicker } from "../../../components/date-picker";
 import { years } from "../../../../mocks/years/years";
+import { StyledCheckbox } from "../../../components/checkbox";
 
 const TramitaContainer = styled.div({
   backgroundColor: colors.backgroundSecondary,
@@ -64,6 +65,12 @@ const StyledTextArea = styled.textarea({
   borderRadius: "4px",
 });
 
+const ContentWrapper = styled.div({
+  gap: "8px",
+  display: "flex",
+  alignItems: "center",
+});
+
 const PrimeraInscripcionTramita = () => {
   return (
     <div>
@@ -81,7 +88,7 @@ const PrimeraInscripcionTramita = () => {
           </Flex>
           <Flex id="estado">
             <Text fontWeight="bold">Estado</Text>
-            <Select size="sm" width="100px" backgroundColor="white">
+            <Select size="sm" width="150px" backgroundColor="white">
               <option value="1">Activo</option>
               <option value="2">Inactivo</option>
             </Select>
@@ -161,7 +168,7 @@ const PrimeraInscripcionTramita = () => {
           <Flex id="n-solicitud">
             <Text fontWeight="bold">N° Solicitud</Text>
             <StyledInput type="text" />
-            <input type="checkbox" />
+            <StyledCheckbox />
             <Text size="xs" fontWeight="bold">
               Entrega listado
             </Text>
@@ -172,15 +179,15 @@ const PrimeraInscripcionTramita = () => {
           </Flex>
           <Flex id="fecha-rnvm">
             <Text fontWeight="bold">Fecha Solicitud RNVM</Text>
-            <input type="checkbox" />
+            <StyledCheckbox />
             <Text size="xs" fontWeight="bold">
               Rut
             </Text>
-            <input type="checkbox" />
+            <StyledCheckbox />
             <Text size="xs" fontWeight="bold">
               EC
             </Text>
-            <input type="checkbox" />
+            <StyledCheckbox />
             <Text size="xs" fontWeight="bold">
               CI
             </Text>
@@ -188,13 +195,13 @@ const PrimeraInscripcionTramita = () => {
           </Flex>
           <Flex id="n-valija">
             <Text fontWeight="bold">Número Valija</Text>
-            <div>
-              <input type="checkbox" />
+            <ContentWrapper>
+              <StyledCheckbox />
               <Text size="xs" fontWeight="bold">
                 Entrega Valija
               </Text>
-              <DatePicker type="date" />
-            </div>
+              <StyledInput type="number" />
+            </ContentWrapper>
           </Flex>
           <Flex id="ejecutivo">
             <Text fontWeight="bold">Ejecutivo</Text>
@@ -251,14 +258,14 @@ const PrimeraInscripcionTramita = () => {
             </Select>
           </Flex>
           <Flex id="tag-placas">
-            <div>
+            <ContentWrapper>
               <Text fontWeight="bold">Tag</Text>
-              <StyledInput type="checkbox" />
-            </div>
-            <div>
+              <StyledCheckbox />
+            </ContentWrapper>
+            <ContentWrapper>
               <Text fontWeight="bold">Placas</Text>
-              <StyledInput type="checkbox" />
-            </div>
+              <StyledCheckbox />
+            </ContentWrapper>
           </Flex>
           <Flex id="fecha-ingreso-rnvm">
             <Text fontWeight="bold">Fecha Ingreso RNVM</Text>
@@ -316,76 +323,11 @@ const PrimeraInscripcionTramita = () => {
           </Flex>
           <Flex id="f88">
             <Text fontWeight="bold">F88</Text>
-            <div>
-              <input type="checkbox" />
+            <ContentWrapper>
+              <StyledCheckbox />
               <Text fontWeight="bold">Valor</Text>
               <StyledInput type="text" />
-            </div>
-          </Flex>
-          <Flex id="fotocopia-ds5594">
-            <Text fontWeight="bold">Fotocopia legalizada de cert. de cumplimiento DS 55/94</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="fotocopia-rut-banco">
-            <Text fontWeight="bold">Fotocopia RUT Banco</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="certificado-ds5594">
-            <Text fontWeight="bold">Certificado DS 55/94 / Homologación</Text>
-            <div>
-              <Text fontWeight="bold">1U.</Text>
-              <input type="checkbox" />
-              <Text fontWeight="bold">2U.</Text>
-              <input type="checkbox" />
-              <Text fontWeight="bold">3U.</Text>
-              <input type="checkbox" />
-              <Text fontWeight="bold">4U.</Text>
-              <input type="checkbox" />
-            </div>
-          </Flex>
-          <Flex id="solicitud-1ra">
-            <Text fontWeight="bold">Solicitud de 1a. Inscripción</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="leasing-cert">
-            <Text fontWeight="bold">Leasing certificado combustibles</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="televia">
-            <Text fontWeight="bold">Contrato Televía convenio PAC</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="disp-televia">
-            <Text fontWeight="bold">Dispositivo Televía</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="contrato-leasing">
-            <Text fontWeight="bold">Contrato Leasing</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="padron">
-            <Text fontWeight="bold">Padron</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="pendiente-contrato">
-            <Text fontWeight="bold">Pendiente Contrato</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="pendiente-anotacion">
-            <Text fontWeight="bold">Pendiente Anotación</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="anotacion-meratenencia">
-            <Text fontWeight="bold">Anotación Meratenencia</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="despacho-externo">
-            <Text fontWeight="bold">Despacho Externo</Text>
-            <input type="checkbox" />
-          </Flex>
-          <Flex id="informativo-seguro">
-            <Text fontWeight="bold">Informativo Seguro</Text>
-            <input type="checkbox" />
+            </ContentWrapper>
           </Flex>
         </RightColumn>
       </TramitaContainer>

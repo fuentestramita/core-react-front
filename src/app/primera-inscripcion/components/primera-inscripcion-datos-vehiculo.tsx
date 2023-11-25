@@ -53,14 +53,14 @@ const PrimeraInscripcionDatosVehiculo = () => {
         <LeftColumn>
           <Flex id="tipo-vehiculo">
             <Text fontWeight="bold">Tipo Vehículo</Text>
-            <Select size="sm" width="150px" placeholder="seleccione" backgroundColor="white">
+            <Select size="sm" width="150px" placeholder="Seleccione" backgroundColor="white">
               <option value="1">Activo</option>
               <option value="2">Inactivo</option>
             </Select>
           </Flex>
           <Flex id="vehiculo-marca">
             <Text fontWeight="bold">Marca</Text>
-            <Select size="sm" width="150px" placeholder="seleccione" backgroundColor="white">
+            <Select size="sm" width="150px" placeholder="Seleccione" backgroundColor="white">
               <option value="1">Activo</option>
               <option value="2">Inactivo</option>
             </Select>

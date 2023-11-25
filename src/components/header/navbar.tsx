@@ -57,11 +57,11 @@ const Navbar = () => {
         ) : (
           <>
             <Flex gap="8px">
-              <Text color="yellow.400" fontWeight="bold" fontSize={"xx-large"}>
-                TRAMITA
+              <Text color="#1f335d" fontWeight="bold" fontSize={"xx-large"}>
+                TRAMITA {selectedBank?.name ? "-" : ""}
               </Text>
-              <Text color={colors.fontColor} fontWeight="bold" fontSize={"xx-large"}>
-                {selectedBank?.name ? <span>{`/ Banco ${selectedBank?.name}`}</span> : null}
+              <Text color={selectedBank?.color} fontWeight="bold" fontSize={"xx-large"}>
+                {selectedBank?.name ? <span>{` Banco ${selectedBank?.name}`}</span> : null}
               </Text>
             </Flex>
             <RightContent>

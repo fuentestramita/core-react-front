@@ -2,7 +2,7 @@ export const colors = {
   main: "white",
   backgroundPrimary: "white",
   backgroundSecondary: "#f4f8fb",
-  fontColor: "#2D3748",
+  fontColor: "#6e6e6e",
   buttonColors: {
     primary: {
       background: "#3182CE",
