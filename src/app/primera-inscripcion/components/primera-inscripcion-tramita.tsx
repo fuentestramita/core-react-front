@@ -23,8 +23,8 @@ const LeftColumn = styled.div({
   alignItems: "flex-start",
   justifyContent: "flex-start",
   width: "35%",
-  minWidth: "440px",
-  maxWidth: "440px",
+  minWidth: "480px",
+  maxWidth: "480px",
 });
 
 const RightColumn = styled.div({
@@ -33,8 +33,8 @@ const RightColumn = styled.div({
   alignItems: "flex-start",
   justifyContent: "flex-start",
   width: "35%",
-  minWidth: "440px",
-  maxWidth: "440px",
+  minWidth: "480px",
+  maxWidth: "480px",
 });
 
 const MiddleColumn = styled.div({
@@ -81,7 +81,7 @@ const PrimeraInscripcionTramita = () => {
           </Flex>
           <Flex id="estado">
             <Text fontWeight="bold">Estado</Text>
-            <Select size="sm" width="150px" backgroundColor="white">
+            <Select size="sm" width="100px" backgroundColor="white">
               <option value="1">Activo</option>
               <option value="2">Inactivo</option>
             </Select>
@@ -125,15 +125,15 @@ const PrimeraInscripcionTramita = () => {
           <Flex id="direccion">
             <div>
               <Text fontWeight="bold">Calle</Text>
-              <StyledInput type="text" />
+              <StyledInput type="text" width="100px" />
             </div>
             <div>
               <Text fontWeight="bold">Número</Text>
-              <StyledInput type="text" />
+              <StyledInput type="text" width="80px" />
             </div>
             <div>
               <Text fontWeight="bold">Complemento</Text>
-              <StyledInput type="text" />
+              <StyledInput type="text" width="100px" />
             </div>
           </Flex>
           <Flex id="direccion-2">
@@ -214,7 +214,7 @@ const PrimeraInscripcionTramita = () => {
         <RightColumn>
           <Flex id="año">
             <Text fontWeight="bold">Año</Text>
-            <Select size="sm" width="150px" backgroundColor="white">
+            <Select size="sm" width="100px" backgroundColor="white">
               {years.map((year, index) => (
                 <option key={index} value={year}>
                   {year}
@@ -236,13 +236,13 @@ const PrimeraInscripcionTramita = () => {
           </Flex>
           <Flex id="obs-entrega">
             <Text fontWeight="bold">Observación Entrega</Text>
-            <Select size="sm" width="150px" backgroundColor="white">
+            <Select size="sm" width="100px" backgroundColor="white">
               <option value="">Seleccione</option>
             </Select>
           </Flex>
           <Flex id="n-placas">
             <Text fontWeight="bold">N° Placas</Text>
-            <Select size="sm" width="150px" backgroundColor="white">
+            <Select size="sm" width="100px" backgroundColor="white">
               {[...Array(5)].map((_, index) => (
                 <option key={index + 1} value={index + 1}>
                   {index + 1}
@@ -282,31 +282,31 @@ const PrimeraInscripcionTramita = () => {
           </Flex>
           <Flex id="valor-1ra-inscrip">
             <Text fontWeight="bold">Valor 1ra inscripción</Text>
-            <Select size="sm" width="150px" backgroundColor="white">
+            <Select size="sm" width="100px" backgroundColor="white">
               <option value="$1231231232">$1231231232</option>
             </Select>
           </Flex>
           <Flex id="valor-tramita">
             <Text fontWeight="bold">Valor Tramita</Text>
-            <Select size="sm" width="150px" backgroundColor="white">
+            <Select size="sm" width="100px" backgroundColor="white">
               <option value="0,3">0,3</option>
             </Select>
           </Flex>
           <Flex id="valor-servicio-tag">
             <Text fontWeight="bold">Valor Servicio TAG</Text>
-            <Select size="sm" width="150px" backgroundColor="white">
+            <Select size="sm" width="100px" backgroundColor="white">
               <option value="0">0</option>
             </Select>
           </Flex>
           <Flex id="valor-notaria">
             <Text fontWeight="bold">Valor Servicio TAG</Text>
-            <Select size="sm" width="150px" backgroundColor="white">
+            <Select size="sm" width="100px" backgroundColor="white">
               <option value="$0">$0</option>
             </Select>
           </Flex>
           <Flex id="valor-despacho-correo">
             <Text fontWeight="bold">Valor Despacho Correo</Text>
-            <Select size="sm" width="150px" backgroundColor="white">
+            <Select size="sm" width="100px" backgroundColor="white">
               <option value="0,00">0,00</option>
             </Select>
           </Flex>

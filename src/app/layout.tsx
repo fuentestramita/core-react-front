@@ -22,7 +22,7 @@ const FormContent = styled.div({
   padding: "16px",
   flexDirection: "column",
   gap: "16px",
-  maxWidth: "1300px",
+  maxWidth: "1360px",
 });
 export default function Layout({ children }: { children: ChildrenType }) {
   return (
