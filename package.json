@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently --kill-others \"npm run stubby\" \"vite --port 3000\"",
-    "build": "tsc && vite build --base=/ && rm -rf node_modules/",
+    "build": "tsc && vite build && rm -rf node_modules/",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "stubby": "stubby -w -d ./src/mocks/settings.json -s 8815 -a 8816 -t 8817",
