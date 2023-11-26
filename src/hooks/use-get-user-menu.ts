@@ -5,8 +5,6 @@ import { TramitaAPI } from "../services";
 import { data as menu } from "../mocks/user-menu/user-menu";
 async function fetchUserMenu() {
   console.log(import.meta.env);
-  console.log(process.env);
-  console.log(process.env.local);
   try {
     const { data } = await TramitaAPI.get(`/v1/user-menu/`);
     return data;
