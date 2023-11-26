@@ -8,7 +8,12 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
-
+env:
+  VITE_BASE_URL: https://calm-flower-019659e10.4.azurestaticapps.net/
+  VITE_API_URL: ttps://tramita.cl/api
+  BASE_URL: https://calm-flower-019659e10.4.azurestaticapps.net/
+  API_URL: https://tramita.cl/api
+  
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
