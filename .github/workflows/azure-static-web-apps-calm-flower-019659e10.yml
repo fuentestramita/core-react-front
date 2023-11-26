@@ -10,7 +10,7 @@ on:
       - main
 env:
   VITE_BASE_URL: https://calm-flower-019659e10.4.azurestaticapps.net/
-  VITE_API_URL: ttps://tramita.cl/api
+  VITE_API_URL: https://tramita.cl/api
   BASE_URL: https://calm-flower-019659e10.4.azurestaticapps.net/
   API_URL: https://tramita.cl/api
   
