@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
   cherryPickedKeys.forEach((key) => (processEnv[key] = env[key]));
 
   return {
-    base: "./",
+    base: "/",
     define: {
       "process.env": processEnv,
     },
