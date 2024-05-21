@@ -11,6 +11,9 @@
     "stubby": "stubby -w -d ./src/mocks/settings.json -s 8815 -a 8816 -t 8817",
     "typecheck": "npx tsc --noEmit"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.1",
