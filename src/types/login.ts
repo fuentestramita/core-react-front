@@ -1,7 +1,6 @@
 export type LoginType = {
   token: string;
-  name: string;
-  lastName: string;
+  nombre: string;
   email: string;
-  fullName: string;
+  rut: string;
 };

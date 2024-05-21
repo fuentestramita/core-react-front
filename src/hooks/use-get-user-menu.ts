@@ -1,11 +1,10 @@
 "use client";
-import { UseQueryResult, useQuery } from "@tanstack/react-query";
+import { UseQueryResult, dataTagSymbol, useQuery } from "@tanstack/react-query";
 import { UserMenuResponse } from "../types/user-menu";
 import { TramitaAPI } from "../services";
 import { data as menu } from "../mocks/user-menu/user-menu";
+import { addScaleCorrector } from "framer-motion";
 async function fetchUserMenu() {
-  console.log("import.meta.env", import.meta.env);
-  console.log("process.env", process.env);
   try {
     const { data } = await TramitaAPI.get(`/v1/user-menu/`);
     return data;
