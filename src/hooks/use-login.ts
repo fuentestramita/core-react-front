@@ -12,7 +12,7 @@ export const useLoginMutation = ({ onError }: { onError: (error: string) => void
     // @ts-expect-error
     mutationFn: ({ user, code }: { user: Optional<string>; code: Optional<string> }) => {
       try {
-        return TramitaAPI.post("/v1/login", {
+        return TramitaAPI.post("/api/login", {
           rutUsuario: user,
           codigo: code,
         });
