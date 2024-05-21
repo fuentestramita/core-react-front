@@ -15,10 +15,5 @@ export default defineConfig(({ mode }) => {
       "process.env": processEnv,
     },
     plugins: [react()],
-    server: {
-      proxy: {
-        "/api": "https://core-back-ms.azurewebsites.net",
-      },
-    },
   };
 });
