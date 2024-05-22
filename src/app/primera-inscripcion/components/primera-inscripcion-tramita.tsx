@@ -4,7 +4,6 @@ import { StyledInput } from "../../../components/input";
 import { Text } from "../../../components/typography";
 import { Select } from "@chakra-ui/react";
 import { DatePicker } from "../../../components/date-picker";
-import { years } from "../../../mocks/years/years";
 import { StyledCheckbox } from "../../../components/checkbox";
 
 const TramitaContainer = styled.div({
@@ -222,11 +221,7 @@ const PrimeraInscripcionTramita = () => {
           <Flex id="año">
             <Text fontWeight="bold">Año</Text>
             <Select size="sm" width="100px" backgroundColor="white">
-              {years?.map((year, index) => (
-                <option key={index} value={year}>
-                  {year}
-                </option>
-              ))}
+              <option value={1}>1</option>
             </Select>
           </Flex>
           <Flex id="fecha-recepcion-banco">

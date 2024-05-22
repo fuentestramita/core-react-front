@@ -8,7 +8,6 @@
     "build": "tsc && vite build && rm -rf node_modules/ && npm cache clean --force",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "stubby": "stubby -w -d ./src/mocks/settings.json -s 8815 -a 8816 -t 8817",
     "typecheck": "npx tsc --noEmit"
   },
   "engines": {
@@ -42,11 +41,9 @@
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "@vitejs/plugin-react": "^4.2.0",
-    "concurrently": "^8.2.2",
     "eslint": "^8.53.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
-    "stubby": "^5.1.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
   }

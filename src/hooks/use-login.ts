@@ -1,5 +1,4 @@
 import { useMutation } from "@tanstack/react-query";
-import { loginData } from "../mocks/login/login";
 import { TramitaAPI } from "../services";
 export const useLoginMutation = ({ onSuccess, onError }: { onSuccess: () => void; onError: (error: string) => void }) => {
   const loginMutation = useMutation({
@@ -12,7 +11,7 @@ export const useLoginMutation = ({ onSuccess, onError }: { onSuccess: () => void
         });
       } catch (err) {
         onError("Por favor inténtalo nuevamente");
-        return loginData;
+        return err;
       }
     },
     onSuccess: () => {

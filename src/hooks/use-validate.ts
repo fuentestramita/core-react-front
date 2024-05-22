@@ -2,12 +2,10 @@ import { TramitaAPI } from "../services";
 import { useMutation } from "@tanstack/react-query";
 import { LoginType } from "../types/login";
 import { useSignIn } from "react-auth-kit";
-import { useNavigate } from "react-router-dom";
 import { LOGIN_EXPIRE_TIME_IN_MINUTES } from "../config/content/constants";
-import { loginData } from "../mocks/login/login";
-export const useValidateMutation = ({ onError }: { onError: (error: string) => void }) => {
+
+export const useValidateMutation = ({ onError, onSuccess }: { onError: (error: string) => void; onSuccess: () => void }) => {
   const signIn = useSignIn();
-  const navigate = useNavigate();
   const loginMutation = useMutation({
     // @ts-expect-error
     mutationFn: ({ user, code }: { user: Optional<string>; code: Optional<string> }) => {
@@ -17,7 +15,7 @@ export const useValidateMutation = ({ onError }: { onError: (error: string) => v
           codigo: code,
         });
       } catch (err) {
-        return loginData;
+        return err;
       }
     },
     onSuccess: ({ data }: { data: LoginType }) => {
@@ -30,7 +28,7 @@ export const useValidateMutation = ({ onError }: { onError: (error: string) => v
           name: data.nombre,
         },
       });
-      navigate("/");
+      onSuccess();
     },
     onError: (error) => {
       onError(error?.message);
