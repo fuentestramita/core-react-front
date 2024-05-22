@@ -1,10 +1,10 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import { StyledInput } from "../../../components/input";
-import { useLoginMutation } from "../../../hooks/use-login";
+import { useValidateMutation } from "../../../hooks/use-validate";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 const ValidationCodeModal = ({ isOpen, closeModal, user, onError }: { isOpen: boolean; closeModal: () => void; user: Optional<string>; onError: (a: string) => void }) => {
-  const mutation = useLoginMutation({ onError });
+  const mutation = useValidateMutation({ onError });
   const [code, setCode] = React.useState("");
   const initialRef = React.useRef(null);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

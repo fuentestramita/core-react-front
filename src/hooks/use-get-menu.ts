@@ -5,13 +5,13 @@ import { TramitaAPI } from "../services";
 import { data as menu } from "../mocks/user-menu/user-menu";
 async function fetchUserMenu() {
   try {
-    const { data } = await TramitaAPI.get(`/api/menu`);
+    const { data } = await TramitaAPI.post(`/api/get-menu`);
     return data;
   } catch (err) {
     return menu;
   }
 }
-export const useGetUserMenu = (): UseQueryResult<UserMenuResponse> => {
+export const useGetMenu = (): UseQueryResult<UserMenuResponse> => {
   const banksQuery = useQuery({
     queryKey: ["menu"],
     queryFn: fetchUserMenu,

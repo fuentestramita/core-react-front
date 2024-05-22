@@ -1,31 +1,42 @@
-import { useMutation } from "@tanstack/react-query";
-import { loginData } from "../mocks/login/login";
 import { TramitaAPI } from "../services";
-export const useValidateMutation = ({ onSuccess, onError }: { onSuccess: () => void; onError: (error: string) => void }) => {
-  const valideMutation = useMutation({
+import { useMutation } from "@tanstack/react-query";
+import { LoginType } from "../types/login";
+import useSignIn from "react-auth-kit/hooks/useSignIn";
+import { useNavigate } from "react-router-dom";
+import { loginData } from "../mocks/login/login";
+export const useValidateMutation = ({ onError }: { onError: (error: string) => void }) => {
+  const signIn = useSignIn();
+  const navigate = useNavigate();
+  const validateMutation = useMutation({
     // @ts-expect-error
-    mutationFn: ({ user, password }: { user: Optional<string>; password: Optional<string> }) => {
+    mutationFn: ({ user, code }: { user: Optional<string>; code: Optional<string> }) => {
       try {
         return TramitaAPI.post("/api/validate", {
-          inputRut: user,
-          inputPass: password,
+          rutUsuario: user,
+          codigo: code,
         });
       } catch (err) {
-        onError("Por favor inténtalo nuevamente");
         return loginData;
       }
     },
-    onSuccess: () => {
-      onSuccess();
+    onSuccess: ({ data }: { data: LoginType }) => {
+      signIn({
+        auth: { token: data.token, type: "Bearer" },
+        userState: {
+          email: data.email,
+          name: data.nombre,
+        },
+      });
+      navigate("/");
     },
     onError: (error) => {
       onError(error?.message);
     },
   });
   return {
-    mutation: valideMutation.mutateAsync,
-    isLoading: valideMutation.isPending,
-    isError: valideMutation.isError,
-    data: valideMutation.data,
+    mutation: validateMutation.mutateAsync,
+    isLoading: validateMutation.isPending,
+    isError: validateMutation.isError,
+    data: validateMutation.data,
   };
 };

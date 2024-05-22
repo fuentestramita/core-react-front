@@ -5,7 +5,7 @@ import CoreTramitaLogo from "../../../assets/logo-core-mini.webp";
 import { Text } from "../../../components/typography";
 import { StyledInput } from "../../../components/input";
 import { Button } from "@chakra-ui/react";
-import { useValidateMutation } from "../../../hooks/use-validate";
+import { useLoginMutation } from "../../../hooks/use-login";
 import { StyledCheckbox } from "../../../components/checkbox";
 import { useForm, SubmitHandler } from "react-hook-form";
 import ValidationCodeModal from "./validation-code-modal";
@@ -73,7 +73,7 @@ const LoginCredentials = () => {
   const onError = (error: string) => {
     setError(error);
   };
-  const mutation = useValidateMutation({ onSuccess, onError });
+  const mutation = useLoginMutation({ onSuccess, onError });
   const [showPassword, setShowPassword] = React.useState(false);
   const [isValidateOpen, setIsValidateOpen] = React.useState(false);
   const [user, setUser] = React.useState<string | null>(null);

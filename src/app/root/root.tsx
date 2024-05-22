@@ -3,7 +3,18 @@ import Layout from "../layout";
 import NotFound from "../not-found";
 import React, { Suspense } from "react";
 import Loading from "../../components/loading";
-import { AuthProvider, RequireAuth } from "react-auth-kit";
+import AuthProvider from "react-auth-kit";
+import RequireAuth from "@auth-kit/react-router/RequireAuth";
+import createStore from "react-auth-kit/createStore";
+
+const store = createStore({
+  authName: "_auth",
+  authType: "cookie",
+  cookieDomain: window.location.hostname,
+  cookieSecure: window.location.protocol === "https:",
+});
+
+console.log(store);
 
 const Root = () => {
   const LazyMaestro = React.lazy(() => import("../maestro/page"));
@@ -13,7 +24,7 @@ const Root = () => {
     {
       path: "/",
       element: (
-        <RequireAuth loginPath="/login">
+        <RequireAuth fallbackPath="/login">
           <Layout>
             <div></div>
           </Layout>
@@ -32,7 +43,7 @@ const Root = () => {
       path: "/maestro",
       element: (
         <Suspense fallback={<Loading />}>
-          <RequireAuth loginPath="/login">
+          <RequireAuth fallbackPath="/login">
             <LazyMaestro />
           </RequireAuth>
         </Suspense>
@@ -42,7 +53,7 @@ const Root = () => {
       path: "/primera-inscripcion",
       element: (
         <Suspense fallback={<Loading />}>
-          <RequireAuth loginPath="/login">
+          <RequireAuth fallbackPath="/login">
             <LazyPrimeraInscripcion />
           </RequireAuth>
         </Suspense>
@@ -54,7 +65,7 @@ const Root = () => {
     },
   ]);
   return (
-    <AuthProvider authType="cookie" authName="_auth" cookieDomain={window.location.hostname} cookieSecure={false}>
+    <AuthProvider store={store}>
       <RouterProvider router={router} />
     </AuthProvider>
   );

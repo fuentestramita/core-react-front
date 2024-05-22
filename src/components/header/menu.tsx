@@ -1,7 +1,7 @@
 import SidebarSkeleton from "./sidebar-skeleton";
 import styled from "styled-components";
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Flex, Text } from "@chakra-ui/react";
-import { useGetUserMenu } from "../../hooks/use-get-user-menu";
+import { useGetMenu } from "../../hooks/use-get-menu";
 import { colors } from "../../config/styles/styles";
 import { Link } from "react-router-dom";
 const StyledLink = styled(Link)`
@@ -26,7 +26,7 @@ const MenuWrapper = styled.div({
   padding: "16px",
 });
 const Menu = () => {
-  const getUserMenuQuery = useGetUserMenu();
+  const getUserMenuQuery = useGetMenu();
   const { data } = getUserMenuQuery || {};
 
   if (getUserMenuQuery?.isLoading) {
