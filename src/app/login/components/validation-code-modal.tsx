@@ -3,8 +3,17 @@ import { StyledInput } from "../../../components/input";
 import { useValidateMutation } from "../../../hooks/use-validate";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { debounce } from "../../../utils/debounce";
 const ValidationCodeModal = ({ isOpen, closeModal, user, onError }: { isOpen: boolean; closeModal: () => void; user: Optional<string>; onError: (a: string) => void }) => {
-  const mutation = useValidateMutation({ onError });
+  const [debouncedLoading, setDebouncedLoading] = React.useState(false);
+  const navigate = useNavigate();
+  const debouncedNavigate = debounce(() => navigate("/"), 1500); // Necesitamos esto para que las cookies no esten como undefined en el primer render de la vista logueada
+  const onSuccess = () => {
+    setDebouncedLoading(true);
+    debouncedNavigate();
+  };
+  const mutation = useValidateMutation({ onError, onSuccess });
   const [code, setCode] = React.useState("");
   const initialRef = React.useRef(null);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +37,7 @@ const ValidationCodeModal = ({ isOpen, closeModal, user, onError }: { isOpen: bo
         </ModalBody>
 
         <ModalFooter>
-          <Button type="submit" colorScheme="blue" isLoading={mutation.isLoading} mr="10px" onClick={handleSubmit} size="lg" rightIcon={<FaArrowRight />}>
+          <Button type="submit" colorScheme="blue" isLoading={mutation.isLoading || debouncedLoading} mr="10px" onClick={handleSubmit} size="lg" rightIcon={<FaArrowRight />}>
             Ingresar
           </Button>
           <Button colorScheme="blue" mr={3} onClick={closeModal} size="lg" variant="outline">
