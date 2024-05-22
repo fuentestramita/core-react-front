@@ -5,8 +5,7 @@ import styled from "styled-components";
 import React from "react";
 import Loading from "../loading";
 import { colors } from "../../config/styles/styles";
-import useSignOut from "react-auth-kit/hooks/useSignOut";
-import useAuthUser from "react-auth-kit/hooks/useAuthUser";
+import { useAuthUser, useSignOut } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
 import { useGetEmpresas } from "../../hooks/use-get-empresas";
 import { EmpresaType } from "../../types/empresas";
@@ -44,7 +43,9 @@ const StyledMenuButton = chakra(MenuButton, {
 
 const Navbar = () => {
   const signOut = useSignOut();
-  const { name } = useAuthUser();
+  const user = useAuthUser();
+  // @ts-expect-error
+  const { name = "" } = user();
   const navigate = useNavigate();
   const [selectedEmpresa, setSelectedEmpresa] = React.useState<Optional<EmpresaType>>(null);
   const { data: empresas, isLoading } = useGetEmpresas();

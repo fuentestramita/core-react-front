@@ -1,13 +1,14 @@
 import { TramitaAPI } from "../services";
 import { useMutation } from "@tanstack/react-query";
 import { LoginType } from "../types/login";
-import useSignIn from "react-auth-kit/hooks/useSignIn";
+import { useSignIn } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
+import { LOGIN_EXPIRE_TIME_IN_MINUTES } from "../config/content/constants";
 import { loginData } from "../mocks/login/login";
 export const useValidateMutation = ({ onError }: { onError: (error: string) => void }) => {
   const signIn = useSignIn();
   const navigate = useNavigate();
-  const validateMutation = useMutation({
+  const loginMutation = useMutation({
     // @ts-expect-error
     mutationFn: ({ user, code }: { user: Optional<string>; code: Optional<string> }) => {
       try {
@@ -21,8 +22,10 @@ export const useValidateMutation = ({ onError }: { onError: (error: string) => v
     },
     onSuccess: ({ data }: { data: LoginType }) => {
       signIn({
-        auth: { token: data.token, type: "Bearer" },
-        userState: {
+        token: data.token,
+        expiresIn: LOGIN_EXPIRE_TIME_IN_MINUTES,
+        tokenType: "Bearer",
+        authState: {
           email: data.email,
           name: data.nombre,
         },
@@ -34,9 +37,9 @@ export const useValidateMutation = ({ onError }: { onError: (error: string) => v
     },
   });
   return {
-    mutation: validateMutation.mutateAsync,
-    isLoading: validateMutation.isPending,
-    isError: validateMutation.isError,
-    data: validateMutation.data,
+    mutation: loginMutation.mutateAsync,
+    isLoading: loginMutation.isPending,
+    isError: loginMutation.isError,
+    data: loginMutation.data,
   };
 };

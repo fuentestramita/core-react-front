@@ -1,4 +1,3 @@
-"use client";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { UserMenuResponse } from "../types/user-menu";
 import { TramitaAPI } from "../services";
