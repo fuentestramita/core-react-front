@@ -73,7 +73,7 @@ const Navbar = () => {
                 TRAMITA {selectedEmpresa?.razonSocialEmpresa ? "-" : ""}
               </Text>
               <Text color={selectedEmpresa?.backGroundColor} fontWeight="bold" fontSize={"xx-large"}>
-                {selectedEmpresa?.razonSocialEmpresa ? <span>{` Banco ${selectedEmpresa?.razonSocialEmpresa}`}</span> : null}
+                {selectedEmpresa?.razonSocialEmpresa ? <span>{` ${selectedEmpresa?.razonSocialEmpresa}`}</span> : null}
               </Text>
             </Flex>
             <RightContent>
