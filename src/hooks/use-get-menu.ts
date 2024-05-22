@@ -1,25 +1,18 @@
-"use client";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { UserMenuResponse } from "../types/user-menu";
 import { TramitaAPI } from "../services";
 import { data as menu } from "../mocks/user-menu/user-menu";
 async function fetchUserMenu() {
-  console.log("import.meta.env", import.meta.env);
-  console.log("process.env", process.env);
   try {
-    const { data } = await TramitaAPI.get(`/v1/user-menu/`);
+    const { data } = await TramitaAPI.post(`/api/get-menu`);
     return data;
   } catch (err) {
     return menu;
   }
 }
-export const useGetUserMenu = (): UseQueryResult<UserMenuResponse> => {
+export const useGetMenu = (): UseQueryResult<UserMenuResponse> => {
   const banksQuery = useQuery({
-    queryKey: ["user-menu"],
-    // queryFn: async () => {
-    //   const { data } = await TramitaAPI.get(`/v1/user-menu/`);
-    //   return data;
-    // },
+    queryKey: ["menu"],
     queryFn: fetchUserMenu,
   });
   return banksQuery;

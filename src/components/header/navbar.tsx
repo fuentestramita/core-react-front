@@ -4,11 +4,11 @@ import { HEADER_HEIGHT } from "./constants";
 import styled from "styled-components";
 import React from "react";
 import Loading from "../loading";
-import { BankType } from "../../types/banks";
-import { useGetBanks } from "../../hooks/use-get-banks";
 import { colors } from "../../config/styles/styles";
-import { useSignOut } from "react-auth-kit";
+import { useAuthUser, useSignOut } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
+import { useGetEmpresas } from "../../hooks/use-get-empresas";
+import { EmpresaType } from "../../types/empresas";
 
 const Wrapper = styled.div({
   minHeight: HEADER_HEIGHT,
@@ -43,12 +43,16 @@ const StyledMenuButton = chakra(MenuButton, {
 
 const Navbar = () => {
   const signOut = useSignOut();
+  const user = useAuthUser();
+  // @ts-expect-error
+  const { name = "" } = user();
   const navigate = useNavigate();
-  const [selectedBank, setSelectedBank] = React.useState<Optional<BankType>>(null);
-  const { data: banks, isLoading } = useGetBanks();
+  const [selectedEmpresa, setSelectedEmpresa] = React.useState<Optional<EmpresaType>>(null);
+  const { data: empresas, isLoading } = useGetEmpresas();
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const bank: Optional<BankType> = banks.find((bank: BankType) => bank.id === event.target.value);
-    setSelectedBank(bank);
+    console.log(event.target.value);
+    const empresa: Optional<EmpresaType> = empresas.find((empresa: EmpresaType) => String(empresa.empresaID) === event.target.value);
+    setSelectedEmpresa(empresa);
     // ADD PARAM TO ROUTE
     // router.push(getBankURL(bank?.id || "", pathName));
   };
@@ -57,7 +61,6 @@ const Navbar = () => {
     signOut();
     navigate("/login");
   };
-
   return (
     <>
       <Wrapper>
@@ -67,17 +70,17 @@ const Navbar = () => {
           <>
             <Flex gap="8px">
               <Text color="#1f335d" fontWeight="bold" fontSize={"xx-large"}>
-                TRAMITA {selectedBank?.name ? "-" : ""}
+                TRAMITA {selectedEmpresa?.razonSocialEmpresa ? "-" : ""}
               </Text>
-              <Text color={selectedBank?.color} fontWeight="bold" fontSize={"xx-large"}>
-                {selectedBank?.name ? <span>{` Banco ${selectedBank?.name}`}</span> : null}
+              <Text color={selectedEmpresa?.backGroundColor} fontWeight="bold" fontSize={"xx-large"}>
+                {selectedEmpresa?.razonSocialEmpresa ? <span>{` ${selectedEmpresa?.razonSocialEmpresa}`}</span> : null}
               </Text>
             </Flex>
             <RightContent>
               <Select size="lg" placeholder="Seleccione una opción" onChange={handleChange} backgroundColor="white">
-                {banks?.map((bank: BankType) => (
-                  <option key={bank.id} value={bank.id}>
-                    {bank.name}
+                {empresas?.map((empresa: EmpresaType) => (
+                  <option key={empresa.empresaID} value={empresa.empresaID}>
+                    {empresa.razonSocialEmpresa}
                   </option>
                 ))}
               </Select>
@@ -90,7 +93,7 @@ const Navbar = () => {
                     />
                     <VStack display={{ base: "none", md: "flex" }} alignItems="flex-start" spacing="1px" ml="2">
                       <Text fontSize="xl" color={colors.fontColor}>
-                        Mario Granger
+                        {name}
                       </Text>
                     </VStack>
                     <Box color={colors.fontColor}>
@@ -106,7 +109,7 @@ const Navbar = () => {
           </>
         )}
       </Wrapper>
-      <Divider color={selectedBank?.color} />
+      <Divider color={selectedEmpresa?.backGroundColor} />
     </>
   );
 };

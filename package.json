@@ -4,20 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently --kill-others \"npm run stubby\" \"vite --port 3000\"",
-    "build": "tsc && vite build && rm -rf node_modules/",
+    "dev": "start chrome http://localhost:3000 && vite --port 3000",
+    "build": "tsc && vite build && rm -rf node_modules/ && npm cache clean --force",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "stubby": "stubby -w -d ./src/mocks/settings.json -s 8815 -a 8816 -t 8817",
     "typecheck": "npx tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@tanstack/react-query": "^5.8.4",
+    "@types/js-cookie": "^3.0.6",
     "axios": "^1.6.2",
     "framer-motion": "^10.16.5",
+    "js-cookie": "^3.0.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "node-static": "^0.7.11",
