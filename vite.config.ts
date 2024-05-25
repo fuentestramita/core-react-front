@@ -6,6 +6,7 @@ const cherryPickedKeys = ["VITE_BASE_URL", "VITE_API_URL"];
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
+  console.log(env);
   const processEnv = {};
   cherryPickedKeys.forEach((key) => (processEnv[key] = env[key]));
 
@@ -15,6 +16,11 @@ export default defineConfig(({ mode }) => {
       "process.env": processEnv,
     },
     plugins: [react()],
+    server: {
+      proxy: {
+        "/api": `${env.VITE_API_URL}`,
+      },
+    },
     build: {
       rollupOptions: {
         output: {
