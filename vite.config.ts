@@ -15,11 +15,6 @@ export default defineConfig(({ mode }) => {
       "process.env": processEnv,
     },
     plugins: [react()],
-    server: {
-      proxy: {
-        "/api": `${env.VITE_API_URL}`,
-      },
-    },
     build: {
       rollupOptions: {
         output: {

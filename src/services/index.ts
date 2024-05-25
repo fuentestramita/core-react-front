@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 const token = Cookies?.get("_auth") || "";
 
 export const TramitaAPI: AxiosInstance = axios.create({
+  baseURL: `${import.meta.env.VITE_API_URL}`,
   withCredentials: true,
   headers: { Accept: "application/json", "Content-Type": "application/json", Authorization: `Bearer ${token}` },
 });
